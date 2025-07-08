@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Item Model Import Automation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,11 +14,11 @@
         </div>
         <div class="modelcont box">
             <label for="modelfile">Input Your Model JSON</label>
-            <input type="file" id="modelfile" class="inputs" name="modelfile">
+            <input type="file" accept=".json" id="modelfile" class="inputs" name="modelfile">
         </div>
         <div class="texturecont box">
             <label for="texturefile">Input Your Texture PNG</label>
-            <input type="file" id="texturefile" class="inputs" name="texturefile">
+            <input type="file" accept=".png" id="texturefile" class="inputs" name="texturefile">
         </div>
         <button onclick="createResourcePack()">Download</button>
         <div class="notes box">
