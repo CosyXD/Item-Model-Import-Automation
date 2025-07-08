@@ -2,6 +2,7 @@ function createResourcePack() {
     var modelInput = document.getElementById('modelfile')
     var textureInput = document.getElementById('texturefile')
     var nameInput = document.getElementById('textinput').value
+    var nameSpaceInput = document.getElementById('namespaceinput').value
     var texture = textureInput.files[0];
     var model = modelInput.files[0];
 
@@ -11,7 +12,7 @@ function createResourcePack() {
 `{
   "pack": {
     "pack_format": 46,
-    "description": "Template for resourcepacks. Put together by 100percentme"
+    "description": "Template for resourcepacks."
   }
 }`
 
@@ -19,11 +20,11 @@ function createResourcePack() {
 `{
   "model": {
     "type": "minecraft:model",
-    "model": "cavernermodels:item/${nameInput}"
+    "model": "${nameSpaceInput}:item/${model.name}"
   }
 }`
     var assetsF = zip.folder("assets") /* assetsF means assetsFolde */
-    var namespaceF = assetsF.folder("cavernermodels")
+    var namespaceF = assetsF.folder(nameSpaceInput)
     var itemsF = namespaceF.folder("items")
     var modelsF = namespaceF.folder("models")
     var texturesF = namespaceF.folder("textures")
@@ -41,8 +42,8 @@ function createResourcePack() {
     reader.onload = function(e) {
       let json = JSON.parse(e.target.result);
 
-      json.textures["0"] = "cavernermodels:item/" + texture.name.replace(/\.[^/.]+$/, "");
-      json.textures["particle"] = "cavernermodels:item/" + texture.name.replace(/\.[^/.]+$/, "");
+      json.textures["0"] = nameSpaceInput + ":item/" + texture.name.replace(/\.[^/.]+$/, "");
+      json.textures["particle"] = nameSpaceInput + "cavernermodels:item/" + texture.name.replace(/\.[^/.]+$/, "");
 
       MitemF.file(model.name, JSON.stringify(json, null, 2));
 
