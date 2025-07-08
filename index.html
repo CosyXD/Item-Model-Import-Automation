@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Item Model Import Automation</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="centercont">
+        <div class="flexbox2">
+            <div class="modelcont box2">
+                <label for="modelfile">Input Your Model JSON</label>
+                <input type="file" accept=".json" id="modelfile" class="inputs" name="modelfile">
+            </div>
+            <div class="texturecont box2">
+                <label for="texturefile">Input Your Texture PNG</label>
+                <input type="file" accept=".png" id="texturefile" class="inputs" name="texturefile">
+            </div>
+        </div>
         <div class="namecont box">
+            <label for="namespaceinput">Input Your Namespace</label>
+            <input type="text" id="namespaceinput" class="inputs inputfield" name="namespaceinput">
             <label for="textinput">Input Your Item Name</label>
-            <input type="text" id="textinput" class="inputs" name="textinput">
-        </div>
-        <div class="modelcont box">
-            <label for="modelfile">Input Your Model JSON</label>
-            <input type="file" accept=".json" id="modelfile" class="inputs" name="modelfile">
-        </div>
-        <div class="texturecont box">
-            <label for="texturefile">Input Your Texture PNG</label>
-            <input type="file" accept=".png" id="texturefile" class="inputs" name="texturefile">
+            <input type="text" id="textinput" class="inputs inputfield" name="textinput">
         </div>
         <button onclick="createResourcePack()">Download</button>
         <div class="notes box">
