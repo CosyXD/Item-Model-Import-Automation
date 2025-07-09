@@ -20,7 +20,7 @@ function createResourcePack() {
 `{
   "model": {
     "type": "minecraft:model",
-    "model": "${nameSpaceInput}:item/${model.name}"
+    "model": "${nameSpaceInput}:item/${model.name.replace(/\.[^/.]+$/, "")}"
   }
 }`
     var assetsF = zip.folder("assets") /* assetsF means assetsFolde */
@@ -43,7 +43,7 @@ function createResourcePack() {
       let json = JSON.parse(e.target.result);
 
       json.textures["0"] = nameSpaceInput + ":item/" + texture.name.replace(/\.[^/.]+$/, "");
-      json.textures["particle"] = nameSpaceInput + "cavernermodels:item/" + texture.name.replace(/\.[^/.]+$/, "");
+      json.textures["particle"] = nameSpaceInput + ":item/" + texture.name.replace(/\.[^/.]+$/, "");
 
       MitemF.file(model.name, JSON.stringify(json, null, 2));
 
